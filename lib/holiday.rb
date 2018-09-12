@@ -81,9 +81,9 @@ def all_supplies_in_holidays(holiday_hash)
   seasons = []
   holidays = []
   supplies = [] # may want to join(", ") this one
-  
+=begin
   holiday_hash.each do |season, holiday|
-    print "#{season.to_s.capitalize}:\n  "
+    season.transform_values.with_index { |x, y| print "#{x.to_s.capitalize}:\n  #{y.to_s}: "}
       holiday.each do |day, arr|
         print "#{day.to_s.capitalize}: "
         arr.each do |arr|
@@ -92,13 +92,19 @@ def all_supplies_in_holidays(holiday_hash)
         end
       end
     end
-    
+=end
 end
 
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
+  all_holidays_with_bbq = []
+  holiday_hash.each do |season, holiday|
+    holiday.each do |holiday, supplies|
+      all_holidays_with_bbq << holiday if supplies.include?("BBQ")
+    end
+  end
+  all_holidays_with_bbq
 end
 
 
