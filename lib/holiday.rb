@@ -80,7 +80,19 @@ def all_supplies_in_holidays(holiday_hash)
   # Or create a hash for each season that can then be iterated over in order
   seasons = []
   holidays = []
-  supplies = [] # may want to join(", ") this one
+  supplies_arr = [] # may want to join(", ") this one
+
+holiday_hash.each do |season, holiday|
+  seasons << season.to_s.capitalize
+  
+    holiday.each do |holiday, supplies|
+      holidays << holiday.to_s.split("_").join(" ")
+      supplies_arr << supplies
+    end
+  end
+  puts seasons
+  puts holidays.split(" ").capitalize.join(" ")
+  puts supplies_arr
 =begin
   holiday_hash.each do |season, holiday|
     season.transform_values.with_index { |x, y| print "#{x.to_s.capitalize}:\n  #{y.to_s}: "}
