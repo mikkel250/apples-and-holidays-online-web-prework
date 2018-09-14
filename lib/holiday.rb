@@ -105,9 +105,9 @@ holiday_hash.each do |season, holiday|
 		       i.capitalize!
 			   end # capitalizer
 
-	print "   #{h_arr.join(" ")}: "				
+	puts "   #{h_arr.join(" ")}: #{supplies.join(", ")}"				
 
-  print "#{supplies.join(", ")}\n"    
+ # print "#{supplies.join(", ")}\n"    
     
     end   #2nd lvl (holidays, supp)
 
