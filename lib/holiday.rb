@@ -108,10 +108,11 @@ holiday_hash.each do |season, holiday|
 	print "   #{h_arr.join(" ")}: "				
 
   print "#{supplies.join(", ")}\n"    
-    end #2nd lvl (holidays, supp)
+    
+    end   #2nd lvl (holidays, supp)
 
-  end #1st lvl (seasons)
-
+  end     #1st lvl (seasons)
+end       #method
 
 
 
