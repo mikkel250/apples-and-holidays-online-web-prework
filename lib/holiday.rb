@@ -99,7 +99,7 @@ def all_supplies_in_holidays(holiday_hash)
   holidays = []
   supplies_arr = [] 
 
-holiday_hash.each do |season, holiday|
+holiday_hash.each do |season, holiday|  #maybe change this to collect and put into a season array
   seasons << season.to_s.capitalize
   binding.pry
     holiday.each do |holiday, supplies|
