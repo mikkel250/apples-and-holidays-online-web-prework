@@ -99,52 +99,32 @@ def all_supplies_in_holidays(holiday_hash)
   holidays = []
   supplies_arr = [] 
 
-holiday_hash.each do |season, holiday|  #maybe change this to collect and put into a season array
-  seasons << season.to_s.capitalize
-  binding.pry
+holiday_hash.each do |season, holiday|
+#	temp = [] 		# reset the array at the beginning of each round of iteration
+#    temp << season.to_s.capitalize     #push in the season, properly formatted. ---OR just print it out at this point
+  print "#{season.to_s.capitalize}:\n"
     holiday.each do |holiday, supplies|
-      holidays << holiday.to_s.split("_").join(" ")
-      supplies_arr << supplies
-      binding.pry
-    end
-  end
+      h_arr = []  # reset the array for each iteration
+      h_arr = holiday.to_s.split("_") 		# splits the holidays into separate words. This was not working because of the join call
+#      puts h_arr
+      #then run the capitalizer and push it back into the temp arr. This is only capitalizing the first word still. It may be easiest to just run this on the final temp aray rather than trying to run it on just this one part
+      	#Capitalizer
+      	 h_arr.each do |i|		        
+		       i.capitalize!
+			   end # capitalizer
+#			temp << h_arr.join(" ")  # push capitalized and split holidays into final arr. 
+	print "   #{h_arr.join(" ")}: "				
+			# ----OR just print it out, then print out the supplies!
+      
+ 
+#      supplies_arr << supplies
+  print "#{supplies.join(", ")}\n"    
+    end #2nd lvl (holidays, supp)
+    #then iterate over the entire arr and print?
+#  temp.each {|x| puts x}
+  end #1st lvl (seasons)
 
-   def capitalizer(holidays)
-     h_split = holidays.map {|x| x.split(" ")} # split into separate arrays.
-        # iterate over each array within that array, capitalize them
-      h_split.each do |i|
-        i.each do |x|
-          x.capitalize!
-        end
-    end
-  end
-  
-  # the final step is going to be to group each holiday together and then iterate over each of those arrays and plug into the template to print it.
-  # this may be best accomplished in the intial step above while going over the hash initially, then using the capitalizer, then pushing each item into a final hash
-  # maybe use a counter while iterating over the various hashes? Then increment the array it goes into?
-  
-  holidays_capitalized = capitalizer(holidays)
-  puts seasons
-  puts supplies_arr
-  
-  
-  
-  
-=begin
-  holiday_hash.each do |season, holiday|
-    season.transform_values.with_index { |x, y| print "#{x.to_s.capitalize}:\n  #{y.to_s}: "}
-      holiday.each do |day, arr|
-        print "#{day.to_s.capitalize}: "
-        arr.each do |arr|
-          
-          print "#{arr}, "
-        end
-      end
-    end
-=end
-end
 
-all_supplies_in_holidays(holiday_hash)
 
 
 
