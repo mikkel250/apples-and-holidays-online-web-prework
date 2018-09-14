@@ -101,10 +101,11 @@ def all_supplies_in_holidays(holiday_hash)
 
 holiday_hash.each do |season, holiday|
   seasons << season.to_s.capitalize
-  
+  binding.pry
     holiday.each do |holiday, supplies|
       holidays << holiday.to_s.split("_").join(" ")
       supplies_arr << supplies
+      binding.pry
     end
   end
 
