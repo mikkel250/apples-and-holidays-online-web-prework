@@ -74,13 +74,13 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
   
-  #maybe get all the keys and all the values and then iterate and print
   
-  # Or create different named arrays for each one and then print them out in a template
-  # Or create a hash for each season that can then be iterated over in order
+  
+  # Or create different named arrays for each one and then print them out in a template?
+  # Or create a hash for each season that can then be iterated over in order?
   seasons = []
   holidays = []
-  supplies_arr = [] # may want to join(", ") this one
+  supplies_arr = [] 
 
 holiday_hash.each do |season, holiday|
   seasons << season.to_s.capitalize
@@ -90,9 +90,28 @@ holiday_hash.each do |season, holiday|
       supplies_arr << supplies
     end
   end
+
+   def capitalizer(holidays)
+     h_split = holidays.map {|x| x.split(" ")} # split into separate arrays.
+        # iterate over each array within that array, capitalize them
+      h_split.each do |i|
+        i.each do |x|
+          x.capitalize!
+        end
+    end
+  end
+  
+  # the final step is going to be to group each holiday together and then iterate over each of those arrays and plug into the template to print it.
+  # this may be best accomplished in the intial step above while going over the hash initially, then using the capitalizer, then pushing each item into a final hash
+  # maybe use a counter while iterating over the various hashes? Then increment the array it goes into?
+  
+  holidays_capitalized = capitalizer(holidays)
   puts seasons
-  puts holidays.split(" ").capitalize.join(" ")
   puts supplies_arr
+  
+  
+  
+  
 =begin
   holiday_hash.each do |season, holiday|
     season.transform_values.with_index { |x, y| print "#{x.to_s.capitalize}:\n  #{y.to_s}: "}
