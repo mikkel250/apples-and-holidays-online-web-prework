@@ -95,7 +95,7 @@ def all_supplies_in_holidays(holiday_hash)
   
 holiday_hash.each do |season, holiday|
 
-  print "#{season.to_s.capitalize}:\n"
+  puts "#{season.to_s.capitalize}:"
     holiday.each do |holiday, supplies|
       h_arr = []  # reset the array for each iteration
       h_arr = holiday.to_s.split("_") 		# splits the holidays into separate words. This was not working because of the join call
