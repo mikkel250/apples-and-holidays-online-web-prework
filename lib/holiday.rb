@@ -98,21 +98,18 @@ holiday_hash.each do |season, holiday|
   puts "#{season.to_s.capitalize}:"
     holiday.each do |holiday, supplies|
       h_arr = []  # reset the array for each iteration
-      h_arr = holiday.to_s.split("_") 		# splits the holidays into separate words. This was not working because of the join call
+      h_arr = holiday.to_s.split("_")
 
       		#Capitalizer
       	 h_arr.each do |i|		        
 		       i.capitalize!
 			   end # capitalizer
 
-	puts "  #{h_arr.join(" ")}: #{supplies.join(", ")}"				
+	    puts "  #{h_arr.join(" ")}: #{supplies.join(", ")}"
+    end   
 
- # print "#{supplies.join(", ")}\n"    
-    
-    end   #2nd lvl (holidays, supp)
-
-  end     #1st lvl (seasons)
-end       #method
+  end     
+end       
 
 
 
